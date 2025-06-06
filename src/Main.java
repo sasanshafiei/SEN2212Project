@@ -22,5 +22,6 @@ public class Main {
         pacmanGame.requestFocus();// Requests keyboard focus for pacmanGame so it can receive key events.
         frame.setVisible(true); // now we set visible to see all component in the window
 
+
     }
 }

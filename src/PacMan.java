@@ -2,10 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.Point;
-import java.util.ArrayList;//foods
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.HashSet; // easy to search
+import java.util.ArrayList;//foods and BFS , both sasan anil
+import java.util.Queue; //BFS , SASAN
+import java.util.LinkedList; // BFS,SASAN
+import java.util.HashSet; // easy to search , ANIL
 
 
 public class PacMan extends JPanel implements ActionListener , KeyListener {
@@ -18,7 +18,7 @@ public class PacMan extends JPanel implements ActionListener , KeyListener {
     Timer gameLoop;
 
     int score = 0;
-    int lives = 3 ;
+    int lives = 3;
     boolean GameOver = false;
 
     private int rowCount = 21;
@@ -94,21 +94,27 @@ public class PacMan extends JPanel implements ActionListener , KeyListener {
         return null;
     }
 
-
-
-
     @Override
     public void keyTyped(KeyEvent e) {}//we dont use
     // Invoked when a key is typed (pressed and released), primarily for character input.
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //System.out.println("keyEvent"+e.getKeyCode());
+
+    }//we dont use
+
+
+    // Invoked when a key is pressed down; ideal for detecting non-character keys or starting an action.
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+//System.out.println("keyEvent"+e.getKeyCode());
         if (GameOver){ // resraet game in the case of game over when you press bottom
             loadMap();
             resetposition();
             lives = 3;
             GameOver = false;
+            score = 0;
             gameLoop.start();
         }
 
@@ -140,11 +146,6 @@ public class PacMan extends JPanel implements ActionListener , KeyListener {
             pacman.image = pacmanRightImage;
         }
 
-    }
-    // Invoked when a key is pressed down; ideal for detecting non-character keys or starting an action.
-
-    @Override
-    public void keyReleased(KeyEvent e) {
 
     }
 
@@ -428,7 +429,7 @@ public class PacMan extends JPanel implements ActionListener , KeyListener {
                     ghost.x -= ghost.velocityX;
                     ghost.y -= ghost.velocityY;
                     // If a collision occurs, you might choose to set a new direction.
-                    // Optionally, you could fallback to a random direction, or simply ignore if BFS is active.
+                    // Optionally, you could fall back to a random direction, or simply ignore if BFS is active.
                 }
             }
         }
@@ -436,7 +437,7 @@ public class PacMan extends JPanel implements ActionListener , KeyListener {
         for (Block ghost : ghosts) {
             if (collision(pacman, ghost)) {
                 lives -= 1;
-                if (lives == 0) {
+                if (lives <= 0) {
                     GameOver = true;
                 }
                 resetposition();
@@ -456,6 +457,8 @@ public class PacMan extends JPanel implements ActionListener , KeyListener {
         // if user WIN just reset everyting
         if(foods.isEmpty()){
             loadMap();
+            lives = 3;
+            score = 0 ;
             resetposition();
         }
 
