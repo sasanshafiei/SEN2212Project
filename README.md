@@ -8,6 +8,16 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 * **Having fun** and showing off a fully working desktop game that compiles in seconds
 
 ---
+# 🎮 game_shots
+
+
+## Pac-Man collecting pellets while ghosts patrol the maze:
+![GAMELOOP.png](GAMELOOP.png)
+
+
+## End-of-game sequence showing your final score:
+![GAMEOVER.png](GAMEOVER.png)
+---
 
 ## ✨ Features
 
