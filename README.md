@@ -51,7 +51,7 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 │       ├── pacmanUp.png ![pacmanUp.png](pacmanUp.png)
 │       ├── pacmanDown.png  ![pacmanDown.png](pacmanDown.png)
 │       ├── pacmanLeft.png  ![pacmanLeft.png](pacmanLeft.png)
-│       ├── pacmanRight.png  ![pacmanRight.png](pacmanRight.png)
+│       ├── pacmanRight.png  [![pacmanRight.png](pacmanRight.png)](https://github.com/sasanshafiei/SEN2212Project/blob/master/src/pacmanRight.png?raw=true)
 │       ├── blueGhost.png  ![blueGhost.png](blueGhost.png)
 │       ├── orangeGhost.png  ![orangeGhost.png](orangeGhost.png)
 │       ├── redGhost.png  ![redGhost.png](redGhost.png)
