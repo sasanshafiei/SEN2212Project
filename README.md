@@ -12,7 +12,7 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 
 
 ## Pac-Man collecting pellets while ghosts patrol the maze:
-[![GAMELOOP.png](game loop.png)](https://github.com/sasanshafiei/SEN2212Project/blob/master/game%20loop.png?raw=true)
+![GAMELOOP.png](GAMELOOP.png)
 
 
 ## End-of-game sequence showing your final score:
