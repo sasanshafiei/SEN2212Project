@@ -47,9 +47,6 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 | *Any arrow after GAME OVER* | Restart with full lives |
 
 ---
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,7 +132,7 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
             <input type="checkbox" id="res" checked>
             <label for="res" class="filename">resources/</label>
             <ul>
-              <li><a href="src/resources/wall.png" class="filename">wall.png</a></li> 
+              <li><a href="src/resources/wall.png" class="filename">wall.png</a></li>
               <li><a href="src/resources/pacmanUp.png" class="filename">pacmanUp.png</a></li>
               <li><a href="src/resources/pacmanDown.png" class="filename">pacmanDown.png</a></li>
               <li><a href="src/resources/pacmanLeft.png" class="filename">pacmanLeft.png</a></li>
@@ -153,8 +150,6 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
   </div>
 </body>
 </html>
-
-
 ---
 
 ## 🚀 Quick Start
