@@ -10,19 +10,18 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 ---
 # 🎮 game_shots
 
-<div style="display: flex; gap: 1rem; align-items: flex-start;">
-
-  <div style="text-align: center;">
-    <strong>Pac-Man Game Loop</strong><br>
-    <img src="GAMELOOP.png" width="300" alt="Pac-Man Game Loop">
-  </div>
-
-  <div style="text-align: center;">
-    <strong>Game Over Sequence</strong><br>
-    <img src="GAMEOVER.png" width="300" alt="Game Over Sequence">
-  </div>
-
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <h4>Pac-Man Game Loop</h4>
+      <img src="GAMELOOP.png" width="300" alt="Pac-Man Game Loop">
+    </td>
+    <td align="center">
+      <h4>Game Over Sequence</h4>
+      <img src="GAMEOVER.png" width="300" alt="Game Over Sequence">
+    </td>
+  </tr>
+</table>
 
 ---
 
