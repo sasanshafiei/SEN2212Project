@@ -10,13 +10,20 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 ---
 # 🎮 game_shots
 
+<div style="display: flex; gap: 1rem; align-items: flex-start;">
 
-## Pac-Man collecting pellets while ghosts patrol the maze:
-![GAMELOOP.png](GAMELOOP.png)
+  <div style="text-align: center;">
+    <strong>Pac-Man Game Loop</strong><br>
+    <img src="GAMELOOP.png" width="300" alt="Pac-Man Game Loop">
+  </div>
 
+  <div style="text-align: center;">
+    <strong>Game Over Sequence</strong><br>
+    <img src="GAMEOVER.png" width="300" alt="Game Over Sequence">
+  </div>
 
-## End-of-game sequence showing your final score:
-![GAMEOVER.png](GAMEOVER.png)
+</div>
+
 ---
 
 ## ✨ Features
