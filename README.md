@@ -50,75 +50,107 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 
 ## 📂 Project Layout
 
-<?php
-// Recursively render a nested <ul> tree of any directory
-function renderTree(string $dir) {
-    echo "<ul>\n";
-    foreach (scandir($dir) as $item) {
-        if ($item === '.' || $item === '..') continue;
-        $path = "$dir/$item";
-        if (is_dir($path)) {
-            echo "<li class=\"folder\">📁 $item\n";
-            renderTree($path);
-            echo "</li>\n";
-        } else {
-            $ext = strtolower(pathinfo($item, PATHINFO_EXTENSION));
-            if (in_array($ext, ['png','jpg','jpeg','gif'])) {
-                // Image file: thumbnail + name
-                echo <<<HTML
-<li class="file image">
-  <div class="thumb"><img src="$path" alt="$item"></div>
-  <span class="filename">$item</span>
-</li>
-
-HTML;
-            } else {
-                // Regular file
-                echo "<li class=\"file\">📄 $item</li>\n";
-            }
-        }
-    }
-    echo "</ul>\n";
-}
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>📂 Project Layout</title>
   <style>
-    body { margin:0; font-family:sans-serif; display:flex; height:100vh; }
-    .tree { flex:0 0 300px; overflow:auto; border-right:1px solid #ddd; padding:1em; }
-    .tree ul { list-style:none; padding-left:1em; }
-    .tree li { margin:0.2em 0; }
-    .folder { font-weight:bold; cursor:pointer; }
-    .file { margin-left:1.2em; }
-    .thumb img { max-width:60px; border:1px solid #ccc; display:block; margin-bottom:0.2em; }
-    .gallery { flex:1; padding:1em; display:grid;
-               grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
-               gap:1em; overflow:auto; }
-    .gallery figure { text-align:center; font-size:0.85em; }
-    .gallery img { max-width:100%; border:1px solid #ccc; }
+    /* Basic “folder‐tree” styling */
+    .tree ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 1em;
+      position: relative;
+    }
+    .tree ul::before {
+      content: "";
+      border-left: 1px solid #ccc;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .tree li {
+      margin: 0;
+      padding: 0.3em 0 0.3em 1em;
+      position: relative;
+    }
+    .tree li::before {
+      content: "";
+      border-top: 1px solid #ccc;
+      position: absolute;
+      top: 1.1em;
+      left: 0;
+      width: 0.8em;
+      height: 0;
+    }
+    .tree li:last-child::before {
+      background: white;
+      height: auto;
+      top: 1.1em;
+      bottom: 0;
+    }
+    .tree li > label {
+      cursor: pointer;
+    }
+    .tree input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+      left: -1em;
+    }
+    .tree input[type=checkbox] ~ ul {
+      display: none;
+    }
+    .tree input[type=checkbox]:checked ~ ul {
+      display: block;
+    }
+    .filename {
+      font-family: monospace;
+    }
+    .comment {
+      color: #666;
+      font-style: italic;
+      margin-left: 0.5em;
+    }
   </style>
 </head>
 <body>
-  <!-- Left: file tree -->
-  <nav class="tree">
-    <?php renderTree('src'); ?>
-    <ul><li class="file">📄 README.md</li></ul>
-  </nav>
-
-  <!-- Right: auto‐picked PNG gallery -->
-  <section class="gallery">
-    <?php
-      foreach (glob('src/resources/*.png') as $img) {
-          $name = basename($img);
-          echo "<figure>\n";
-          echo "  <img src=\"$img\" alt=\"$name\">\n";
-          echo "  <figcaption>$name</figcaption>\n";
-          echo "</figure>\n";
-      }
-    ?>
-  </section>
+  <h2>📂 Project Layout</h2>
+  <div class="tree">
+    <ul>
+      <li>
+        <input type="checkbox" id="src" checked>
+        <label for="src" class="filename">src/</label>
+        <ul>
+          <li>
+            <span class="filename">Main.java</span>
+            <span class="comment"># creates the JFrame and attaches the game panel</span>
+          </li>
+          <li>
+            <span class="filename">PacMan.java</span>
+            <span class="comment"># game logic, rendering, input &amp; BFS path-finding</span>
+          </li>
+          <li>
+            <input type="checkbox" id="res" checked>
+            <label for="res" class="filename">resources/</label>
+            <ul>
+              <li><a href="src/resources/wall.png" class="filename">wall.png</a></li> 
+              <li><a href="src/resources/pacmanUp.png" class="filename">pacmanUp.png</a></li>
+              <li><a href="src/resources/pacmanDown.png" class="filename">pacmanDown.png</a></li>
+              <li><a href="src/resources/pacmanLeft.png" class="filename">pacmanLeft.png</a></li>
+              <li><a href="src/resources/pacmanRight.png" class="filename">pacmanRight.png</a></li>
+              <li><a href="src/resources/blueGhost.png" class="filename">blueGhost.png</a></li>
+              <li><a href="src/resources/orangeGhost.png" class="filename">orangeGhost.png</a></li>
+              <li><a href="src/resources/redGhost.png" class="filename">redGhost.png</a></li>
+              <li><a href="src/resources/pinkGhost.png" class="filename">pinkGhost.png</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="README.md" class="filename">README.md</a></li>
+    </ul>
+  </div>
 </body>
 </html>
 
