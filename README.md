@@ -48,7 +48,7 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 
 ---
 
-## 📂 Project Layout
+
 
 <!DOCTYPE html>
 <html lang="en">
