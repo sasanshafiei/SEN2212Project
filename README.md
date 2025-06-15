@@ -49,20 +49,78 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 ---
 
 ## 📂 Project Layout
-├── src/
-│   ├── Main.java        # creates the JFrame and attaches the game panel
-│   ├── PacMan.java      # game logic, rendering, input & BFS path-finding
-│   └── resources/
-│       ├── wall.png  ![wall.png]([wall.png](https://github.com/sasanshafiei/SEN2212Project/blob/master/src/wall.png?raw=true))
-│       ├── pacmanUp.png ![pacmanUp.png](pacmanUp.png)
-│       ├── pacmanDown.png  ![pacmanDown.png](pacmanDown.png)
-│       ├── pacmanLeft.png  ![pacmanLeft.png](pacmanLeft.png)
-│       ├── pacmanRight.png  [![pacmanRight.png](pacmanRight.png)](https://github.com/sasanshafiei/SEN2212Project/blob/master/src/pacmanRight.png?raw=true)
-│       ├── blueGhost.png  ![blueGhost.png](blueGhost.png)
-│       ├── orangeGhost.png  ![orangeGhost.png](orangeGhost.png)
-│       ├── redGhost.png  ![redGhost.png](redGhost.png)
-│       └── pinkGhost.png  ![pinkGhost.png](pinkGhost.png)
-└── README.md
+
+<?php
+// Recursively render a nested <ul> tree of any directory
+function renderTree(string $dir) {
+    echo "<ul>\n";
+    foreach (scandir($dir) as $item) {
+        if ($item === '.' || $item === '..') continue;
+        $path = "$dir/$item";
+        if (is_dir($path)) {
+            echo "<li class=\"folder\">📁 $item\n";
+            renderTree($path);
+            echo "</li>\n";
+        } else {
+            $ext = strtolower(pathinfo($item, PATHINFO_EXTENSION));
+            if (in_array($ext, ['png','jpg','jpeg','gif'])) {
+                // Image file: thumbnail + name
+                echo <<<HTML
+<li class="file image">
+  <div class="thumb"><img src="$path" alt="$item"></div>
+  <span class="filename">$item</span>
+</li>
+
+HTML;
+            } else {
+                // Regular file
+                echo "<li class=\"file\">📄 $item</li>\n";
+            }
+        }
+    }
+    echo "</ul>\n";
+}
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📂 Project Layout</title>
+  <style>
+    body { margin:0; font-family:sans-serif; display:flex; height:100vh; }
+    .tree { flex:0 0 300px; overflow:auto; border-right:1px solid #ddd; padding:1em; }
+    .tree ul { list-style:none; padding-left:1em; }
+    .tree li { margin:0.2em 0; }
+    .folder { font-weight:bold; cursor:pointer; }
+    .file { margin-left:1.2em; }
+    .thumb img { max-width:60px; border:1px solid #ccc; display:block; margin-bottom:0.2em; }
+    .gallery { flex:1; padding:1em; display:grid;
+               grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
+               gap:1em; overflow:auto; }
+    .gallery figure { text-align:center; font-size:0.85em; }
+    .gallery img { max-width:100%; border:1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <!-- Left: file tree -->
+  <nav class="tree">
+    <?php renderTree('src'); ?>
+    <ul><li class="file">📄 README.md</li></ul>
+  </nav>
+
+  <!-- Right: auto‐picked PNG gallery -->
+  <section class="gallery">
+    <?php
+      foreach (glob('src/resources/*.png') as $img) {
+          $name = basename($img);
+          echo "<figure>\n";
+          echo "  <img src=\"$img\" alt=\"$name\">\n";
+          echo "  <figcaption>$name</figcaption>\n";
+          echo "</figure>\n";
+      }
+    ?>
+  </section>
+</body>
+</html>
 
 
 ---
