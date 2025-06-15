@@ -47,7 +47,7 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 │   ├── Main.java        # creates the JFrame and attaches the game panel
 │   ├── PacMan.java      # game logic, rendering, input & BFS path-finding
 │   └── resources/
-│       ├── wall.png  ![wall.png](wall.png)
+│       ├── wall.png  ![wall.png]([wall.png](https://github.com/sasanshafiei/SEN2212Project/blob/master/src/wall.png?raw=true))
 │       ├── pacmanUp.png ![pacmanUp.png](pacmanUp.png)
 │       ├── pacmanDown.png  ![pacmanDown.png](pacmanDown.png)
 │       ├── pacmanLeft.png  ![pacmanLeft.png](pacmanLeft.png)
