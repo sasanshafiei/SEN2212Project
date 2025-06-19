@@ -49,7 +49,7 @@ Built with nothing more than the Java SE platform and the Swing GUI toolkit, thi
 ---
 ## 📂 Project Layout
 
-```text
+```
 PacMan-Java/
 ├── src/
 │   ├── Main.java        # creates the JFrame and attaches the game panel
@@ -70,6 +70,7 @@ PacMan-Java/
 ├── README.md            # Project documentation
 └── LICENSE              # MIT License
 
+```
 ---
 
 ## 🚀 Quick Start
