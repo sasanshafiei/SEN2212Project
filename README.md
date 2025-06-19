@@ -65,8 +65,8 @@ PacMan-Java/
 │       ├── redGhost.png
 │       └── pinkGhost.png
 ├── screenshots/
-│   ├── Screenshot_2025-05-02_194410.png
-│   └── Screenshot_2025-05-02_192405.png
+│   ├── <img src="GAMELOOP.png" width="200" alt="Pac-Man Game Loop">
+│   └── <img src="GAMEOVER.png" width="200" alt="Game Over Sequence">
 ├── README.md            # Project documentation
 └── LICENSE              # MIT License
 
